@@ -52,11 +52,11 @@ bun run build
 
 ## 📝 Scripts
 
-- `bun dev` - Start development server
-- `bun build` - Build for production
-- `bun test` - Run tests
-- `bun lint` - Run linter
-- `bun format` - Format code
+- `bun run dev` - Start development server
+- `bun run build` - Build for production
+- `bun run test` - Run tests
+- `bun run lint` - Run linter
+- `bun run format` - Format code
 
 ## 📚 Project Structure
 
