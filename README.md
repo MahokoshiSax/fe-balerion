@@ -13,6 +13,7 @@ A modern web application built with Bun, the fast all-in-one JavaScript runtime 
 ## 📋 Prerequisites
 
 - [Bun](https://bun.sh) (v1.0.0 or later)
+- [Go](https://golang.org) (v1.21 or later) - Required for Thai currency converter
 
 ## 🛠️ Installation
 
@@ -27,28 +28,63 @@ cd fe-balerion
 bun install
 ```
 
+3. Install Go dependencies:
+```bash
+go mod download
+```
+
 ## 🚀 Development
 
 Start the development server:
 ```bash
-bun dev
+bun run dev
 ```
 
 The application will be available at `http://localhost:3000`
 
-## 🧪 Testing
 
-Run tests:
+### For ASSIGNMENT Backend Test Thai Currency Converter Tests
+The project includes a Thai currency converter package that converts decimal values to Thai text with currency formatting. To run the tests for this package:
+
+1. Navigate to the package directory:
 ```bash
-bun test
+cd pkg/thai-currency
 ```
 
-## 📦 Building for Production
-
-Create a production build:
+2. Run the tests:
 ```bash
-bun run build
+go test -v
 ```
+
+OR
+
+1. Go to cmd/main.go
+
+2. run the code
+
+Example test cases:
+```go
+// Zero
+0 -> "ศูนย์บาทถ้วน"
+
+// Whole number
+1234 -> "หนึ่งพันสองร้อยสามสิบสี่บาทถ้วน"
+
+// With satang
+1234.56 -> "หนึ่งพันสองร้อยสามสิบสี่บาทห้าสิบหกสตางค์"
+
+// Large number
+1000000 -> "หนึ่งล้านบาทถ้วน"
+
+// Decimal only
+0.50 -> "ศูนย์บาทห้าสิบสตางค์"
+
+// Special case
+21 -> "ยี่สิบเอ็ดบาทถ้วน"
+```
+
+### FOR Front-end test ASSIGNMENT 2 path is /assign-2
+
 
 ## 📝 Scripts
 
@@ -65,7 +101,10 @@ fe-balerion/
 ├── src/           # Source files
 ├── public/        # Static assets
 ├── tests/         # Test files
+├── pkg/           # Go packages
+│   └── thai-currency/  # Thai currency converter
 ├── bun.lockb      # Bun lock file
+├── go.mod         # Go module file
 └── package.json   # Project configuration
 ```
 
@@ -84,4 +123,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - [Bun](https://bun.sh) - The JavaScript runtime & toolkit
+- [Go](https://golang.org) - The Go programming language
 - All contributors who have helped shape this project
